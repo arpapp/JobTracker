@@ -5,15 +5,15 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema jobtrackerjb
+-- Schema jobtrackerdb
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `jobtrackerjb` ;
+DROP SCHEMA IF EXISTS `jobtrackerdb` ;
 
 -- -----------------------------------------------------
--- Schema jobtrackerjb
+-- Schema jobtrackerdb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `jobtrackerjb` DEFAULT CHARACTER SET utf8 ;
-USE `jobtrackerjb` ;
+CREATE SCHEMA IF NOT EXISTS `jobtrackerdb` DEFAULT CHARACTER SET utf8 ;
+USE `jobtrackerdb` ;
 
 -- -----------------------------------------------------
 -- Table `user`
@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `user` ;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(200) NOT NULL,
   `first_name` VARCHAR(45) NOT NULL,
   `enabled` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`))
@@ -70,7 +70,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- Data for table `user`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `jobtrackerjb`;
+USE `jobtrackerdb`;
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `enabled`) VALUES (1, 'tpapp', 'admin', 'Toni', 1);
 
 COMMIT;
@@ -80,7 +80,7 @@ COMMIT;
 -- Data for table `job`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `jobtrackerjb`;
+USE `jobtrackerdb`;
 INSERT INTO `job` (`id`, `date_applied`, `title`, `company`, `location`, `cover_letter_submitted`, `contact_person`, `notes`, `status`, `user_id`) VALUES (1, '2020-07-13', 'Software Developer', 'Woodridge Software', 'Golden, CO', 1, 'Kaj Gronholm', NULL, 'PENDING', 1);
 
 COMMIT;
