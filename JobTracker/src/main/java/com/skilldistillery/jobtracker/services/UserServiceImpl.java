@@ -30,4 +30,24 @@ public class UserServiceImpl implements UserService {
 		return userRepo.findAll();
 	}
 
+	@Override
+	public User updateUser(String username, User user) {
+		User managedUser = userRepo.findByUsername(username);
+		managedUser.setFirstName(user.getFirstName());
+		userRepo.saveAndFlush(managedUser);
+		return managedUser;
+	}
+
+	@Override
+	public boolean disableUser(String username) {
+		User managedUser = userRepo.findByUsername(username);
+		managedUser.setEnabled(false);
+		userRepo.saveAndFlush(managedUser);
+		//if managed user was succesfully disabled, return true
+		if(!managedUser.isEnabled()) {
+			return true;
+		}
+		return false;
+	}
+
 }
