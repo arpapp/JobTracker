@@ -8,8 +8,8 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider
     </provider>
 
-		<class>com.skilldistillery.jobtracker.entites.Job</class>
-		<class>com.skilldistillery.jobtracker.entities.User</class>
+		<class>com.skilldistillery.jobtracker.Job</class>
+		<class>com.skilldistillery.jobtracker.User</class>
 
 
 		<properties>
